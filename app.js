@@ -467,7 +467,10 @@ app.controller('TemplateController', function ($scope) {
 // filter for reverse list
 app.filter('reverse', function() {
   return function(items) {
-    return items.slice().reverse();
+    if (items)
+        return items.slice().reverse();
+    else 
+        return []
   };
 });
 // )'(

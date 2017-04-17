@@ -5,22 +5,22 @@
 </div>
 
 <!--Quiz area-->
-<div id="quiz-page" ng-controller="TemplateController" xmlns="http://www.w3.org/1999/html">
+<div id="quiz-page" class="sixteen-nine" ng-controller="TemplateController" xmlns="http://www.w3.org/1999/html">
     <!--<div id="game-start-wrapper" class="well card">-->
 
-    <div class="quiz-area" ng-show="inProgress">
+    <div class="content" ng-show="inProgress">
 
 
-        <div ng-show="!quizOver">
-            <div id="wrapper" class="container-fluid">
-                <div class="row no-gutter">
+        <div ng-show="!quizOver" class="full-size">
+            <div id="wrapper" class="full-size">
+                <div class="full-size">
 
-                    <div id="sidebar-wrapper" class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
+                    <div class="categories-wrapper">
                         <h1 class="category" ng-repeat="category in categories | reverse" ng-class="{'category-done': category.category_completed}">{{ category.name }}</h1>
                     </div>
-                    <div id="zone" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                        <h2 id="question"> {{ question }} </h2>
-                        <ul class="" id="options">
+                    <div id="zone">
+                        <div class="question"> {{ question }} </div>
+                        <ul class="answers" id="options">
                             <li class="list-group-item answer-option"
                                 ng-click="checkAnswer($event)" ng-repeat="option in options|orderBy:random">
                                 <label class="answer-option-label">
@@ -29,20 +29,18 @@
                                 </label>
                             </li>
                         </ul>
-                        <div id="HelperBtnsArea">
+                        <div class="helper-buttons-area">
 
                             <!-- Helper buttons -->
 
-                            <div class="input-group-btn">
-                                <button id="btnHint" ng-click="getHint()" ng-show="answerMode"
-                                        ng-disabled="!checkCanGetHint()">
+                            <span class="btn-hint" ng-click="getHint()" ng-show="answerMode"
+                                ng-disabled="!checkCanGetHint()">
 
-                                </button>
-                                <button id="btnSkip" ng-click="skipQuestion()" ng-show="answerMode"
-                                        ng-disabled="!checkCanSkipQuestion()">
-                                </button>
+                            </span>
+                            <span class="btn-skip" ng-click="skipQuestion()" ng-show="answerMode"
+                                ng-disabled="!checkCanSkipQuestion()">
+                            </span>
 
-                            </div>
                         </div>
                     </div>
                 </div>
